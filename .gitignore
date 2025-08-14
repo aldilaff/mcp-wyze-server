@@ -229,7 +229,6 @@ private/
 
 # Testing
 test_*.py
-!test_device.py
 tests/__pycache__/
 .test_env
 
@@ -269,3 +268,5 @@ data/
 local/
 scratch/
 sandbox/
+
+PUBLISHING.md

@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-wyze-server"
+version = "0.1.0"
+description = "MCP server for controlling Wyze smart home devices"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    { name = "Faisal Aldilaijan", email = "github@faisal.software" }
+]
+maintainers = [
+    { name = "Faisal Aldilaijan", email = "github@faisal.software" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Home Automation",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["mcp", "wyze", "smart-home", "iot", "home-automation"]
+requires-python = ">=3.13"
+dependencies = [
+    "mcp[cli]>=1.12.2",
+    "wyze-sdk>=1.10.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/aldilaff/mcp-wyze-server"
+Repository = "https://github.com/aldilaff/mcp-wyze-server"
+Issues = "https://github.com/aldilaff/mcp-wyze-server/issues"
+Documentation = "https://github.com/aldilaff/mcp-wyze-server#readme"
+
+[project.scripts]
+mcp-wyze-server = "mcp_wyze_server.server:main"
+
+[tool.uv]
+dev-dependencies = [
+    "build>=1.0.0",
+    "twine>=5.0.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcp_wyze_server"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/LICENSE",
+    "/README.md",
+]
