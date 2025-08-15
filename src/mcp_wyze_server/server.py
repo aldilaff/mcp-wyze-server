@@ -451,13 +451,24 @@ def wyze_set_color(device_mac: str, color: str) -> Dict[str, str]:
         devices = client.devices_list()
         
         for device in devices:
-            if device.mac == device_mac and getattr(device, 'product_type', 'Unknown') in ['Light', 'Bulb', 'MeshLight', 'LightStrip']:
-                client.bulbs.set_color(
-                    device_mac=device_mac,
-                    device_model=getattr(device, 'product_model', 'Unknown'),
-                    color=color
-                )
-                return {"status": "success", "message": f"Set {device.nickname} color to {color}"}
+            if device.mac == device_mac:
+                # Get device type from multiple possible attributes
+                device_type = (getattr(device, 'product_type', None) or 
+                              getattr(device, 'type', None) or
+                              (hasattr(device, 'product') and getattr(device.product, 'type', None)) or
+                              'Unknown')
+                
+                device_model = (getattr(device, 'product_model', None) or
+                               (hasattr(device, 'product') and getattr(device.product, 'model', None)) or
+                               'Unknown')
+                
+                if device_type in ['Light', 'Bulb', 'MeshLight', 'LightStrip']:
+                    client.bulbs.set_color(
+                        device_mac=device_mac,
+                        device_model=device_model,
+                        color=color
+                    )
+                    return {"status": "success", "message": f"Set {device.nickname} color to {color}"}
         
         return {"status": "error", "message": f"Light with MAC {device_mac} not found"}
     except WyzeClientConfigurationError as e:

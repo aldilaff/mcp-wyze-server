@@ -27,7 +27,7 @@ keywords = ["mcp", "wyze", "smart-home", "iot", "home-automation"]
 requires-python = ">=3.13"
 dependencies = [
     "mcp[cli]>=1.12.2",
-    "wyze-sdk @ git+https://github.com/aldilaff/wyze-sdk.git",
+    "wyze-sdk-aldilaff>=2.2.0",
 ]
 
 [project.urls]
@@ -44,9 +44,6 @@ dev-dependencies = [
     "build>=1.0.0",
     "twine>=5.0.0",
 ]
-
-[tool.hatch.metadata]
-allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/mcp_wyze_server"]
