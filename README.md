@@ -2,6 +2,10 @@
 
 An MCP (Model Context Protocol) server for controlling Wyze smart home devices using the wyze-sdk library.
 
+<a href="https://glama.ai/mcp/servers/@aldilaff/mcp-wyze-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@aldilaff/mcp-wyze-server/badge" alt="Wyze Server MCP server" />
+</a>
+
 ## Overview
 
 This MCP server provides a comprehensive interface for interacting with Wyze devices through AI assistants like Claude. It supports authentication, device discovery, device control, and group management for various Wyze smart home products.
