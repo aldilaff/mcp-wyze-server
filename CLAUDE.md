@@ -44,7 +44,7 @@ This project uses `uv` for dependency management:
 
 - Dependencies are defined in `pyproject.toml`
 - Lock file: `uv.lock`
-- Main dependencies: `mcp[cli]>=1.12.2`, `wyze-sdk>=1.10.0`
+- Main dependencies: `mcp[cli]>=1.12.2`, `wyze-sdk-aldilaff>=2.2.1`
 
 ### Installing Dependencies
 
